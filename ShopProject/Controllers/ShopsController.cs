@@ -22,8 +22,8 @@ namespace ShopProject.Controllers
         }
 
         [Authorize(Roles = "User")]
-        [HttpGet("all/{id}")]
-        public async Task<IActionResult> GetShops(int id)
+        [HttpGet("all")]
+        public async Task<IActionResult> GetShops()
         {
             var shops = await _context.Shops.Where(x => x.User.Email == HttpContext.User.Identity.Name).ToListAsync();
             return Ok(shops.Select(x => new
