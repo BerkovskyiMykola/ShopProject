@@ -85,8 +85,6 @@ namespace ShopProject.Controllers
             var shopItem = await _context.ShopItems
                 .SingleOrDefaultAsync(x => x.Shop.User.Email == HttpContext.User.Identity.Name && x.ShopItemId == model.ShopItemId);
 
-            _context.Entry(shopItem).State = EntityState.Modified;
-
             if (model == null)
             {
                 return BadRequest();
@@ -95,6 +93,8 @@ namespace ShopProject.Controllers
             shopItem.Name = model.Name;
             shopItem.Price = model.Price;
             shopItem.Amount = model.Amount;
+
+            await _context.SaveChangesAsync();
 
             return NoContent();
         }

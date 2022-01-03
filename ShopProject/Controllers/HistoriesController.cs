@@ -69,11 +69,13 @@ namespace ShopProject.Controllers
                 return NotFound();
             }
 
+            var k = new Random().Next(1, shopItem.Amount);
+
             var history = new History
             {
                 Name = shopItem.Name,
-                PricePaid = shopItem.Price,
-                Amount = new Random().Next(1, shopItem.Amount),
+                PricePaid = shopItem.Price * k,
+                Amount = k,
                 DateTime = DateTime.Now, 
                 ShopId = id
             };
