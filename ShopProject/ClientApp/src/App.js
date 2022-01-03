@@ -12,6 +12,7 @@ import NotFound from "./components/NotFound";
 import Shop from "./components/Shop/Shop";
 import ShopItem from "./components/ShopItem/ShopItem";
 import History from "./components/History/History";
+import Statistic from "./components/Statistic/Statistic";
 import { PrivateRoute } from "./components/PrivateRoute/PrivateRoute";
 
 import './App.css'
@@ -122,6 +123,7 @@ export default function App() {
                         <PrivateRoute exact path="/profile" component={Profile} />
                         <PrivateRoute exact path="/shops" component={Shop} roles={["User"]} />
                         <PrivateRoute exact path="/shopItems/:id" component={ShopItem} roles={["User"]} />
+                        <PrivateRoute exact path="/statistic/:id" component={Statistic} roles={["User"]} />
                         <PrivateRoute exact path="/histories/:id" component={History} roles={["User"]} />
                         <Route exact path="/404" component={NotFound} />
                         <Route component={NotFound} />

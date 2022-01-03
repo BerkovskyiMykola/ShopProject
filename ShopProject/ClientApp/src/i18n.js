@@ -37,6 +37,9 @@ i18n.use(LanguageDetector).init({
                 pricePaid: "Price paid",
                 OpenHistory: "Open History",
                 histories: "Histories",
+                statistic: "Statistic",
+                key: "Title",
+                count: "Count",
 
                 "This field is required!": "This field is required!",
                 "This is not a valid email. Example: example@example.com": "This is not a valid email. Example: example@example.com",
@@ -85,6 +88,9 @@ i18n.use(LanguageDetector).init({
                 pricePaid: "Сплачена сума",
                 OpenHistory: "Відкрити історію",
                 histories: "Історія",
+                statistic: "Статистика",
+                key: "Назва",
+                count: "Кількість",
 
                 "This field is required!": "Це поле необхідне!",
                 "This is not a valid email. Example: example@example.com": "Це не валідна пошта. Наприклад: example@example.com",

@@ -1,6 +1,6 @@
 ﻿import React, { useEffect, useState } from 'react'
 import { shallowEqual, useDispatch, useSelector } from 'react-redux';
-import { Container, Row, Button, Col, Jumbotron } from "reactstrap";
+import { Container, Row, Button, Col } from "reactstrap";
 import { validateField, validateRequired } from '../../validation/validation';
 import { Field } from '../FormComponents';
 import ModalWindow from '../ModalWindow/ModalWindow';
@@ -68,6 +68,10 @@ const Shop = (props) => {
         props.history.push("/shopItems/" + item.shopId);
     }
 
+    const openPageTwo = (item) => {
+        props.history.push("/statistic/" + item.shopId);
+    }
+
     return (
         <Container>
             <Container>
@@ -79,7 +83,7 @@ const Shop = (props) => {
                 </Row>
             </Container>
 
-            <List recorts={shops} k="shopId" columns={['name', 'address', 'type']} deleteRecord={deleteRecord} editRecord={getUserValues} openPage={openPage}/>
+            <List recorts={shops} k="shopId" columns={['name', 'address', 'type']} deleteRecord={deleteRecord} editRecord={getUserValues} openPage={openPage} openPageTwo={openPageTwo}/>
 
             <ModalWindow modal={modalAdd} deactiveModal={() => setModalAdd(false)} textHeader={t("Create")}
                 textButton={t("Create")} method={createRecord} message={message}

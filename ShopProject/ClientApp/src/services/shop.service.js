@@ -20,6 +20,10 @@ class ShopService {
     editShop(shopId, name, address, type) {
         return axios.put(API_URL + "edit/" + shopId, { shopId, name, address, type }, { headers: authHeader() });
     }
+
+    getStatistic(shopId) {
+        return axios.get(API_URL + "statistic/" + shopId, { headers: authHeader() });
+    }
 }
 
 export default new ShopService();

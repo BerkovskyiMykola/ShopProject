@@ -4,7 +4,7 @@ import { Table, Container, Row, Col } from "reactstrap";
 import ListItem from './ListItem';
 
 
-const List = ({ recorts, columns, k, deleteRecord, editRecord, openPage, action = true }) => {
+const List = ({ recorts, columns, k, deleteRecord, editRecord, openPage, openPageTwo, action = true }) => {
 
     const { t } = useTranslation();
 
@@ -30,7 +30,7 @@ const List = ({ recorts, columns, k, deleteRecord, editRecord, openPage, action 
                 </tr>
             </thead>
             <tbody>
-                {recorts.map((item, index) => (<ListItem key={item[k]} item={item} index={index} columns={columns} deleteRecord={deleteRecord} editRecord={editRecord} openPage={openPage} action={action} />))}
+                {recorts.map((item, index) => (<ListItem key={item[k]} item={item} index={index} openPageTwo={openPageTwo} columns={columns} deleteRecord={deleteRecord} editRecord={editRecord} openPage={openPage} action={action} />))}
             </tbody>
         </Table>
     );

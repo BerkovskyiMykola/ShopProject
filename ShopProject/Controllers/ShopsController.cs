@@ -36,6 +36,21 @@ namespace ShopProject.Controllers
         }
 
         [Authorize(Roles = "User")]
+        [HttpGet("statistic/{id}")]
+        public async Task<IActionResult> GetStatistic(int id)
+        {
+            var shop = await _context.Shops
+                .Include(x => x.Histories)
+                .SingleOrDefaultAsync(x => x.ShopId == id && x.User.Email == HttpContext.User.Identity.Name);
+
+            return Ok(shop.Histories.GroupBy(x => x.Name).Select(x => new
+            {
+                x.Key,
+                Count = x.Sum(x => x.Amount)
+            }));
+        }
+
+        [Authorize(Roles = "User")]
         [HttpPost("create")]
         public async Task<ActionResult<Shop>> PostShop(Shop shop)
         {

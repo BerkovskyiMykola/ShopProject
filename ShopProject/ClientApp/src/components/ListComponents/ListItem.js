@@ -1,6 +1,6 @@
 ﻿import React from 'react';
 
-const ListItem = ({ columns, item, index, deleteRecord, editRecord, openPage, action }) => {
+const ListItem = ({ columns, item, index, deleteRecord, editRecord, openPage, openPageTwo, action }) => {
 
     return (
         <tr>
@@ -30,7 +30,14 @@ const ListItem = ({ columns, item, index, deleteRecord, editRecord, openPage, ac
                             className="btn btn-outline-info btn-sm float-left">
                             <i className="fa fa-folder-open-o" />
                         </button>
-                    }
+                }
+                {openPageTwo &&
+                    <button
+                        onClick={() => { openPageTwo(item) }}
+                        className="btn btn-outline-info btn-sm float-left">
+                        <i className="fa fa-bar-chart" />
+                    </button>
+                }
                 </td>
             }
         </tr>
